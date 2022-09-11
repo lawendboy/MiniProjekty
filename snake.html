@@ -1,0 +1,119 @@
+<html>
+ <body>
+  <canvas id="myCanvas" width="640" height="480"></canvas>
+  <script>
+   var canvas = document.getElementById("myCanvas");
+   var ctx = canvas.getContext("2d");
+   var score = -10;
+   var play = true;
+   var snakeHead = [16, 12];
+   var snakeBody = [];
+   var snakeDirection = 1;
+   var queuedDirection = 1;
+   var apple = [0, 0]
+   var direction = [];
+   direction[0] = [0, 1];
+   direction[1] = [1, 0];
+   direction[2] = [0, -1];
+   direction[3] = [-1, 0];
+   var drawSnake = () => {
+    ctx.fillStyle = "#00750a";
+    for(let i = 0; i < snakeBody.length; i++)
+     ctx.fillRect(20 * snakeBody[i][0], 20 * snakeBody[i][1], 20, 20);
+   }   
+   var drawBackground = () => {
+    ctx.fillStyle = "#c8c9b3";
+    for(let x = 0; x < 32; x++)
+     for(let y = 0; y < 24; y++)
+      ctx.fillRect(20 * x, 20 * y, 20, 20);
+   }
+   var drawApple = () => {
+    ctx.fillStyle = "#f50723";
+    ctx.fillRect(20 * apple[0], 20 * apple[1], 20, 20);
+   }
+   document.onkeydown = (e) => {
+    switch(e.key){
+     case "ArrowUp":
+      if(snakeDirection == 2)
+       return;
+      queuedDirection = 0;
+      break;
+     case "ArrowRight":
+      if(snakeDirection == 3)
+       return;
+      queuedDirection = 1;
+      break;
+     case "ArrowDown":
+      if(snakeDirection == 0)
+       return;
+      queuedDirection = 2;
+      break;
+     case "ArrowLeft":
+      if(snakeDirection == 1)
+       return;
+      queuedDirection = 3;
+      break;
+    }
+   }
+   var generateApple = () => {
+    apple = [Math.floor(Math.random() * 32), Math.floor(Math.random() * 24)];
+    for(let i = 0; i < snakeBody.length; i++){
+     if(apple[0] == snakeBody[i][0] && apple[1] == snakeBody[i][1])
+      generateApple();
+    }
+    score += 10;
+    document.title = "Score: " + score;
+   }   
+   var moveSnake = () => {
+    snakeDirection = queuedDirection;
+    snakeHead[0] += direction[snakeDirection][0];
+    snakeHead[1] -= direction[snakeDirection][1];
+    snakeBody.unshift([snakeHead[0], snakeHead[1]]);
+    let x = snakeHead[0]; let y = snakeHead[1];
+    if(x > 31 || x < 0 || y > 23 || y < 0){
+      end();
+      return;
+    }    
+    if(snakeHead[0] == apple[0] && snakeHead[1] == apple[1]){
+     generateApple();
+     return;
+    }
+    snakeBody.pop();
+    for(let i = 1; i < snakeBody.length; i++){
+     if(snakeBody[i][0] == x && snakeBody[i][1] == y){
+      end();
+      return;
+     }
+    }    
+   }
+   var render = () => {
+    drawBackground();
+    drawSnake();
+    drawApple();
+   }
+   var start = () => {
+    snakeBody.unshift(snakeHead);
+    generateApple();
+    render();
+   }
+   let a = 25;
+   let b = 0;
+   var update = () => {
+    if(play)
+     requestAnimationFrame(update);
+    b++;
+    if(b == a){
+     b = 0;
+     moveSnake();
+     render();
+    }
+   }
+   var end = () => {
+    document.title = "End | Score: " + score;
+    play = false;
+   }
+   start();
+   update();
+  </script>
+ </body>
+</html>
