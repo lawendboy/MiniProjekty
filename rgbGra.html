@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #77c499;
+        }
+        
+        .container {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        
+        .content {
+            width: 800px;
+            height: 700px;
+            background-color: #a2dc2e;
+            border-radius: 50px;
+            padding: 15px;
+        }
+        
+        .topBox {
+            width: 100%;
+            height: 35%;
+        }
+        
+        .bottomBox {
+            width: 100%;
+            height: 60%;
+            margin-top: 3.5%;
+        }
+        
+        .topButtons {
+            width: 100%;
+            height: 49%;
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .bottomButtons {
+            margin-top: 1%;
+            width: 100%;
+            height: 49%;
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .button {
+            width: 206px;
+            height: 206px;
+            background-color: #e43030;
+            border-radius: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 5px solid #5c5c5c;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+        
+        .codeBlock {
+            width: 60%;
+            height: 100%;
+            margin: auto;
+            border: 5px solid #444;
+            box-sizing: border-box;
+            border-radius: 10px;
+            background-color: #292c33;
+            display: flex;
+        }
+        
+        .code {
+            width: 90%;
+            height: 90%;
+            padding-top: 7%;
+            margin-left: auto;
+            margin-right: auto;
+            flex-direction: column;
+        }
+        
+        .codeLine {
+            margin-top: 1%;
+            font-family: "Monaco";
+            font-size: 18px;
+        }
+        
+        .color1 {
+            color: #b89067;
+            text-shadow: -0.5px -0.5px 0 #757575, 0.5px -0.5px 0 #757575, -0.5px 0.5px 0 #757575, 0.5px 0.5px 0 #757575;
+        }
+        
+        .color2 {
+            color: #d17277;
+            text-shadow: -0.5px -0.5px 0 #7d7d7d, 0.5px -0.5px 0 #7d7d7d, -0.5px 0.5px 0 #7d7d7d, 0.5px 0.5px 0 #7d7d7d;
+        }
+        
+        .color3 {
+            color: #a1c281;
+            text-shadow: -0.5px -0.5px 0 #7e7e7e, 0.5px -0.5px 0 #7e7e7e, -0.5px 0.5px 0 #7e7e7e, 0.5px 0.5px 0 #7e7e7e;
+        }
+        
+        .color4 {
+            color: #292929;
+            text-shadow: -0.5px -0.5px 0 #a3a3a3, 0.5px -0.5px 0 #a3a3a3, -0.5px 0.5px 0 #a3a3a3, 0.5px 0.5px 0 #a3a3a3;
+        }
+        
+        .color5 {
+            color: #f7cc4f;
+            text-shadow: -0.5px -0.5px 0 #a3a3a3, 0.5px -0.5px 0 #a3a3a3, -0.5px 0.5px 0 #a3a3a3, 0.5px 0.5px 0 #a3a3a3;
+        }
+        
+        .color6 {
+            color: #acb2be;
+            text-shadow: -0.5px -0.5px 0 #a3a3a3, 0.5px -0.5px 0 #a3a3a3, -0.5px 0.5px 0 #a3a3a3, 0.5px 0.5px 0 #a3a3a3;
+        }
+        
+        .color7 {
+            color: #b97bd5;
+            text-shadow: -0.5px -0.5px 0 #959595, 0.5px -0.5px 0 #959595, -0.5px 0.5px 0 #959595, 0.5px 0.5px 0 #959595;
+        }
+        
+        .colorRed {
+            color: #ff5151;
+            text-shadow: -0.5px -0.5px 0 #a3a3a3, 0.5px -0.5px 0 #a3a3a3, -0.5px 0.5px 0 #a3a3a3, 0.5px 0.5px 0 #a3a3a3;
+        }
+        
+        .colorGreen {
+            color: #9bff5d;
+            text-shadow: -0.5px -0.5px 0 #a3a3a3, 0.5px -0.5px 0 #a3a3a3, -0.5px 0.5px 0 #a3a3a3, 0.5px 0.5px 0 #a3a3a3;
+        }
+        
+        .colorBlue {
+            color: #51b1ff;
+            text-shadow: -0.5px -0.5px 0 #a3a3a3, 0.5px -0.5px 0 #a3a3a3, -0.5px 0.5px 0 #a3a3a3, 0.5px 0.5px 0 #a3a3a3;
+        }
+        </style>
+        <lawendboy></lawendboy>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="topBox">
+                <div class="codeBlock">
+                    <div class="code">
+                        <div class="codeLine">
+                            <span class="color1">.element</span>
+                            <span class="color2">{</span>
+                        </div>
+                        <div class="codeLine"><br></div>
+                        <div class="codeLine">
+                            <span class="color3">&ensp;&ensp;wynik</span><span class="color4">:</span>
+                            <span id="wynik" class="color5">9999999</span><span class="color2">;</span>
+                        </div>
+                        <div class="codeLine">
+                            <span class="color6">&ensp;&ensp;background color</span><span class="color4">:</span> 
+                            <span class="color7">rgb(</span><span class="colorRed">000</span><span class="color2">, </span><span class="colorGreen">000</span><span class="color2">, </span><span class="colorBlue">000</span><span class="color7">)</span><span class="color2">;</span>
+                        </div>
+                        <div class="codeLine"><br></div>
+                        <div class="codeLine">
+                            <span class="color2">}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottomBox">
+                <div class="topButtons">
+                    <div class="button"></div>
+                    <div class="button"></div>
+                    <div class="button"></div>
+                </div>
+                <div class="bottomButtons">
+                    <div class="button"></div>
+                    <div class="button"></div>
+                    <div class="button"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script defer>
+        (() => {
+            let wynik = document.querySelector("#wynik");
+            let red = document.querySelector(".colorRed");
+            let green = document.querySelector(".colorGreen");
+            let blue = document.querySelector(".colorBlue");
+            let buttons = document.querySelectorAll(".button");
+
+            let color = [0, 0, 0];
+            let correctButton = 0;
+            let score = 0;
+
+            let GenerateColors = () => {
+                color[0] = Math.floor((Math.random() * 1000) % 255);
+                red.innerHTML = color[0];
+                color[1] = Math.floor((Math.random() * 1000) % 255);
+                green.innerHTML = color[1];
+                color[2] = Math.floor((Math.random() * 1000) % 255);
+                blue.innerHTML = color[2];
+                correctButton = Math.floor((Math.random() * 10) % 6)
+                for(let i = 0; i < 6; i++){
+                    if(i == correctButton)
+                        buttons[i].style = `background-color: rgb(${color[0]}, ${color[1]}, ${color[2]});`;
+                    else
+                        buttons[i].style = `background-color: rgb(${Math.floor((Math.random() * 1000) % 255)}, ${Math.floor((Math.random() * 1000) % 255)}, ${Math.floor((Math.random() * 1000) % 255)});`;
+                }
+            }
+
+            buttons.forEach((element, key) => {
+                element.addEventListener('click', () => {
+                    if(key == correctButton)
+                        score += 100;
+                    else
+                        score -= 100;
+                    wynik.innerHTML = score;
+                    GenerateColors();
+                });
+            });
+
+            wynik.innerHTML = 0;
+            GenerateColors();
+        })();
+    </script>
+</body>
+</html>
